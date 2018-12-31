@@ -1,6 +1,10 @@
 <?php
-  include('connect.php');
+  session_start();
+  if(!isset($_SESSION['id'])){
+    //header('Location:login.php');
+  }
 
+  include('connect.php');
   if(isset($_GET['del']) && $_GET['del'] !='') {
   $del_id=$_GET['del'];
   $q="DELETE FROM `dir` WHERE id=$del_id";
@@ -31,5 +35,8 @@
     echo "<tr><td>$name</td> <td>$email</td> <td>$cell</td> <td><a href='?del=$id'>delete</a></td> <td><a href=update.php?ed=$id'>Update</a></td></tr>";
 
   }
+    echo '<a href="logout.php">logout</a>';
+    echo'<pre>';
+    echo '<a href="signup.php">Sign Up</a>';
 ?>
 </table>

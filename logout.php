@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-$_SESSION['loggedIn']==0;
-$_SESSION['userId'] = header('Location:login.php')
-
+unset($_SESSION['id']);
+unset($_SESSION['email']);
+header('Location:login.php');
 ?>

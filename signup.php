@@ -9,13 +9,14 @@
 
   $my_name =$_POST["name"];
   $my_mail= $_POST["email"];
-  $my_pass= md5($_POST["password"]);
+  $my_pass= $_POST["password"];
+  //$my_pass= md5($_POST["password"]);
 
   $q = "INSERT INTO `users` ( `name` , `email` , `password`)
-   VALUES ('$my_name' , '$my_mail' , md5('$my_pass'))";
+   VALUES ('$my_name' , '$my_mail' , '$my_pass')";
 
   if (mysqli_query($db,$q)) {
-    echo "Signed up";
+    header('Location:login.php');
     }
     else
     {

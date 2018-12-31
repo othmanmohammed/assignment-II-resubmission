@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2018 at 02:56 PM
+-- Generation Time: Dec 31, 2018 at 07:21 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -41,7 +41,6 @@ CREATE TABLE `dir` (
 
 INSERT INTO `dir` (`id`, `name`, `cell_number`, `email`) VALUES
 (12, 'Name is jef ', 30451515151, 'mynis@hotmail.com'),
-(17, 'c', 44545454544, 'c@something.com'),
 (18, 'jef', 45454545454, 'jef@gmail.com'),
 (19, 'something ', 45784164569, 'something@gmail.com'),
 (20, 'new', 77777777777, 'n7@gmail.com'),
@@ -67,7 +66,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`Id`, `name`, `email`, `password`) VALUES
 (1, 'abc', 'abc@gmail.com', '900150983cd24fb0d6963f7d28e17f72'),
 (2, 'test', 't@test.com', 'test'),
-(4, 'test3', 't2@test.com', 'fb469d7ef430b0baf0cab6c436e70375');
+(4, 'test3', 't2@test.com', 'fb469d7ef430b0baf0cab6c436e70375'),
+(6, 'a', 'a@gmail.com', 'a');
 
 --
 -- Indexes for dumped tables
@@ -99,7 +99,7 @@ ALTER TABLE `dir`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

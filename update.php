@@ -13,6 +13,8 @@
 
   $q="UPDATE `dir` SET `name`='$newname' ,`cell_number`='$newcell' ,`email`='$newemail' WHERE `id` = '$userid' ";
 
+
+
   if(  $query= mysqli_query($db,$q)){
     echo 'Update sucessfull';
     header('Location:index.php');

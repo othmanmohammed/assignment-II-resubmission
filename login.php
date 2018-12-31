@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <?php
   session_start();
-  include('connect.php') ;
+  include 'connect.php';
 
-
-
-  if (isset($_POST['email'])  && ($_POST['email'] !== '')) {
+    if (isset($_POST['login'])) {
 
     $mail =$_POST['email'];
-    //$pass =$_POST['password'];
-    $pass =md5($_POST['password']);
+    $pass =$_POST['password'];
+    //$pass =md5($_POST['password']);
 
+    $q="SELECT * FROM `users` WHERE `email` = '$mail' AND `password` = '$pass' ";
 
-    $q = "SELECT `email` , `password` FROM `user` WHERE `email` ='$mail' AND `password` = '$pass' LIMIT 1";
-    $result=mysqli_query($db,$q);
+    $run=mysqli_query($db,$q);
+    $row=mysqli_fetch_assoc($run);
 
-  if ($result)
-   {
-     $_SESSION['loggedIn']==1;
-     $_SESSION['userId'] = header('Location:loggedIn.php');
-   }
-   else
-    {
-     echo "wrong password or email";
-   }
+    if(count($row > 0)){
+      $_SESSION['id']=$row['id'];
+      $_SESSION['email']=$row['email'];
+      header('Location:index.php');
+    }
+    else {
+      echo'Please enter the correct password';
+    }
 
-  if($_SESSION['loggedIn']==0)
-  {
-  echo "Logged out successfully";
-  }
-
-  }
+ }
 
 ?>
 <html lang="en" dir="ltr">
@@ -41,10 +34,10 @@
   </head>
   <body>
 
-    <form class="" action="#" method="post">
+    <form action="#" method="post">
       <P> Enter the email:<input type="text" name="email">
       <p> Enter the password:<input type="password" name="password">
-      <input type="submit" name="submit" value="login">
+      <input type="submit" name="login" value="login">
     </form>
   </body>
 </html>

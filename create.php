@@ -12,16 +12,8 @@ if(isset($_GET['login']) && !empty($_GET['input_name']) && !empty($_GET['input_c
   $email=$_GET['input_email'];
   $mycell=$_GET['input_cell'];
 
-  //if($name !='' && $mycell !='') {
-
   //$db=mysqli_connect('localhost','root','erozgar','assignment_2');
   $q ="INSERT INTO `dir` (`name`,`cell_number`,`email`) VALUES ('$name','$mycell','$email')";
-
-//} // end of if for connecting the data base
-/*
-else {
-  echo 'Please enter the name to connect to the data base';
-}*/
 
   if (mysqli_query($db,$q)){
     echo 'Data created';
